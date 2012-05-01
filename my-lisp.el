@@ -1,5 +1,10 @@
 ;; Lisp stuff
 
+;; clojurescript
+(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
+(setq inferior-lisp-program "browser-repl")
+
+
 ;; highlight entire expression
 (setq show-paren-style 'expression)
 
@@ -14,3 +19,4 @@
   ;;  (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit)
   (add-hook
    (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook))
+
