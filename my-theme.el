@@ -35,7 +35,7 @@
   (cond 
    ((eq themeid 1)
     (custom-set-faces
-     '(default ((t (:stipple nil :background "black" :foreground "grey90" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :family "apple-monaco"))))
+     '(default ((t (:stipple nil :background "black" :foreground "grey90"))))
      '(show-paren-match ((((class color) (background dark)) (:background "MidnightBlue"))))))
    ((eq themeid 2)
     (custom-set-faces
@@ -68,7 +68,7 @@
   "Configure environment for screencasting"
   (interactive)
   (progn
-    (custom-theme-dim-frame 1 1 180 64)
+    ;;(custom-theme-dim-frame 1 1 180 64)
     (custom-theme-select 1))
   )
 
