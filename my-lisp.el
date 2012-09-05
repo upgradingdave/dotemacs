@@ -7,7 +7,8 @@
 ;; highlight entire expression
 (setq show-paren-style 'expression)
 
-;; ;; turn off paredit 
+
+;; ;; turn off paredit
 ;; (dolist (x '(scheme emacs-lisp lisp clojure))
 ;;   (when window-system
 ;;     (font-lock-add-keywords
@@ -18,4 +19,8 @@
 ;;   (add-hook
 ;;       (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook))
 
-
+;; TODO put these into a minor mode maybe?
+(global-set-key (kbd "C-x x f") 'find-function)
+(global-set-key (kbd "C-x x v") 'find-variable)
+(global-set-key (kbd "C-x x x") (lambda () (interactive) (eval-buffer)
+                                  (message "%s" "Evaluated Buffer!")))
