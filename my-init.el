@@ -19,7 +19,7 @@
 
 ;; ecukes
 ;;(add-to-list 'load-path (concat user-emacs-directory user-login-name 
-                                "/maven-mode/util/ecukes"))
+;;                                "/maven-mode/util/ecukes"))
 ;;(require 'ecukes)
 
 ;;maven
