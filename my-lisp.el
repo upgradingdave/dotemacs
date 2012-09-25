@@ -5,8 +5,8 @@
 ;;(setq inferior-lisp-program "browser-repl")
 
 ;; highlight entire expression
+;; Colors and styles controlled by the custom face `show-paren-match'
 (setq show-paren-style 'expression)
-
 
 ;; ;; turn off paredit
 ;; (dolist (x '(scheme emacs-lisp lisp clojure))

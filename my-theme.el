@@ -47,7 +47,7 @@
    ((eq themeid 3)
     (custom-set-faces
      '(default ((t (:stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :family "apple-monaco"))))
-     '(show-paren-match ((((class color) (background dark)) (:background "MidnightBlue"))))))
+     '(show-paren-match ((((class color) (background light)) (:background "selectedControlColor"))))))
    ))
 
 (defun custom-theme-screencast ()
