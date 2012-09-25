@@ -10,17 +10,28 @@
 
 ;;; Load favorite packages from elpa
 (defvar my-packages '(starter-kit js2-mode magit php-mode slime-js js-comint ace-jump-mode 
-                                  unbound markdown-mode)
+                                  unbound markdown-mode feature-mode yasnippet)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; yasnippet
+(require 'yasnippet)
+(yas/initialize)
+;; Change prompt from the default: 
+;; (yas/x-prompt yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)
+(setq yas/prompt-functions '(yas/completing-prompt yas/ido-prompt yas/no-prompt))
+(setq yas/root-directory 
+      '("~/.emacs.d/dparoulek/snippets"
+        "~/.emacs.d/snippets"))
+(mapc 'yas/load-directory yas/root-directory)
+
+
 ;; ecukes
-;;(add-to-list 'load-path (concat user-emacs-directory user-login-name 
-;;                                "/maven-mode/util/ecukes"))
-;;(require 'ecukes)
+(add-to-list 'load-path "~/code/elisp/ecukes")
+(require 'ecukes)
 
 ;;maven
 ;;(add-to-list 'load-path (concat user-emacs-directory user-login-name "/maven-mode"))
