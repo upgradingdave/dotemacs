@@ -14,6 +14,21 @@
 ;; Start a new eshell even if one is active.
 (global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
 
+;; M-x c bound to compile
+(global-set-key (kbd "C-x c") 'compile)
+
+;; grep and find
+
+(global-set-key (kbd "C-c f") (lambda (pattern)
+                                (interactive
+                                 "sFind-name (filename wildcard): ")
+                                (find-name-dired (expand-file-name ".") pattern)))
+
+(global-set-key (kbd "C-c g") (lambda (pattern)
+                                (interactive
+                                 "sFind-grep (grep regexp): ")
+                                (find-grep-dired (expand-file-name ".") pattern)))
+
 ;; completion at point
 ;; otherwise, M-. runs the command find-tag
 ;; TODO make this only for nxml mode
