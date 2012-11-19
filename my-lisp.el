@@ -8,16 +8,10 @@
 ;; Colors and styles controlled by the custom face `show-paren-match'
 (setq show-paren-style 'expression)
 
-;; ;; turn off paredit
-;; (dolist (x '(scheme emacs-lisp lisp clojure))
-;;   (when window-system
-;;     (font-lock-add-keywords
-;;      (intern (concat (symbol-name x) "-mode"))
-;;      '(("(\\|)" . 'esk-paren-face))))
-;;   ;; (add-hook
-;;   ;;  (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit)
-;;   (add-hook
-;;       (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook))
+;; turn on paredit
+(dolist (x '(scheme emacs-lisp lisp clojure))
+  (add-hook
+   (intern (concat (symbol-name x) "-mode-hook")) (lambda () (paredit-mode +1))))
 
 ;; TODO put these into a minor mode maybe?
 (global-set-key (kbd "C-x x f") 'find-function)

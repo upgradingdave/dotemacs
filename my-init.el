@@ -24,17 +24,15 @@
 ;; (yas/x-prompt yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)
 (setq yas/prompt-functions '(yas/completing-prompt yas/ido-prompt yas/no-prompt))
 (setq yas/root-directory 
-      '("~/.emacs.d/dparoulek/snippets"
-        "~/.emacs.d/snippets"))
+      '("~/.emacs.d/dparoulek/snippets"))
 (mapc 'yas/load-directory yas/root-directory)
 
-
 ;; ecukes
-(add-to-list 'load-path "~/code/elisp/ecukes")
-(require 'ecukes)
+;;(add-to-list 'load-path "~/code/elisp/ecukes")
+;;(require 'ecukes)
 
 ;;maven
-;;(add-to-list 'load-path (concat user-emacs-directory user-login-name "/maven-mode"))
-;;(require 'maven-mode)
+(add-to-list 'load-path "~/code/elisp/maven-mode")
+(require 'mvn-mode)
 
 (require 'unbound)
