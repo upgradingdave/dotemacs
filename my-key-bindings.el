@@ -29,6 +29,18 @@
                                  "sFind-grep (grep regexp): ")
                                 (find-grep-dired (expand-file-name ".") pattern)))
 
+;;vc-resolve-conflicts
+(global-set-key (kbd "C-c v") 'vc-resolve-conflicts)
+
+;; dired
+; Reuse buffer when moving to parent
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map (kbd "^")
+              (lambda () (interactive) (find-alternate-file "..")))
+                                        ; was dired-up-directory
+            ))
+
 ;; completion at point
 ;; otherwise, M-. runs the command find-tag
 ;; TODO make this only for nxml mode
