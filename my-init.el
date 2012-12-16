@@ -1,16 +1,17 @@
 ;;; Ensure the following snippet is added to `.emacs.d/init.el`
 
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
-;; (package-initialize)
+;;(require 'package)
+;;(add-to-list 'package-archives
+;;             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;;(package-initialize)
 
-;; (when (not package-archive-contents)
-;;   (package-refresh-contents))
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;;; Load favorite packages from elpa
 (defvar my-packages '(starter-kit js2-mode magit php-mode slime-js js-comint ace-jump-mode 
-                                  unbound markdown-mode feature-mode yasnippet)
+                                  unbound markdown-mode feature-mode yasnippet clojure-mode nrepl
+                                  gist)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -36,3 +37,5 @@
 (require 'mvn-mode)
 
 (require 'unbound)
+
+(dired default-directory)

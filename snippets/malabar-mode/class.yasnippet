@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: class
+# key: class
+# --
+package `java/cwd-to-package`;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class ${1:name} {
+
+    final static Logger log = LoggerFactory.getLogger($1.class);
+
+    $0
+
+}
