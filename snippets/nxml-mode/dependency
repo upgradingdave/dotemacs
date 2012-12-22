@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: constant
+# key: const
+# --
+public final static ${1:type} ${2:name} = ${3:value};

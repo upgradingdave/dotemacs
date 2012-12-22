@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: equals
+# key: equals
+# --
+@Override
+public boolean equals(Object o) {
+
+    if(o == this)
+      return true;    
+
+    if(!(instance of ${1:type}))
+      return false;
+
+    $1 obj = ($1)o;
+    
+    return obj.field1 == field1
+      && obj.field2 == field2;    
+
+}
