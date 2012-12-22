@@ -11,7 +11,7 @@
 ;;; Load favorite packages from elpa
 (defvar my-packages '(starter-kit js2-mode magit php-mode slime-js js-comint ace-jump-mode 
                                   unbound markdown-mode feature-mode yasnippet clojure-mode nrepl
-                                  gist)
+                                  gist command-frequency)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -32,10 +32,16 @@
 ;;(add-to-list 'load-path "~/code/elisp/ecukes")
 ;;(require 'ecukes)
 
-;;maven
+;; maven
 (add-to-list 'load-path "~/code/elisp/maven-mode")
 (require 'mvn-mode)
 
 (require 'unbound)
+
+;; command-frequency
+;;(require 'command-frequency)
+;;(command-frequency-table-load)
+;;(command-frequency-mode 1)
+;;(command-frequency-autosave-mode 1)
 
 (dired default-directory)
