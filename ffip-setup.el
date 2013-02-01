@@ -1,0 +1,11 @@
+;; ffip
+(require 'find-file-in-project)
+(add-to-list 'ffip-patterns "*.xml")
+(add-to-list 'ffip-patterns "*.java")
+(add-to-list 'ffip-patterns "*.json")
+(add-to-list 'ffip-patterns "*.jsp")
+(add-to-list 'ffip-patterns "*.conf")
+(add-to-list 'ffip-patterns "*.clj")
+(setq ffip-find-options "-not -regex \".*target.*\"")
+(setq ffip-project-file '("pom.xml" "project.clj"))
+(global-set-key (kbd "C-x f") 'find-file-in-project)

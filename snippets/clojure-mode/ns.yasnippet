@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ns
+# key: ns
+# --
+(ns ${1:namespace}
+    (:use [smorgasbord.snippets.base :only (with-template)])
+    (:require [clojure.zip :as z])
+    (:import (org.xml.sax ContentHandler Attributes SAXException XMLReader)))
