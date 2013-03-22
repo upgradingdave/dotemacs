@@ -3,6 +3,8 @@
 ;; (require 'package)
 ;; (add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;; (when (not package-archive-contents)
 ;;   (package-refresh-contents))
@@ -11,7 +13,8 @@
 (defvar my-packages '(starter-kit js2-mode magit php-mode slime-js js-comint ace-jump-mode
                                   unbound markdown-mode feature-mode yasnippet 
                                   clojure-mode clojure-test-mode nrepl gist 
-                                  command-frequency rainbow-delimiters twittering-mode)
+                                  command-frequency rainbow-delimiters twittering-mode 
+                                  scala-mode color-theme color-theme-solarized)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -30,16 +33,6 @@
 
 ;; markdown
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(load "~/code/elisp/ORGMODE-Markdown/org-export-generic.el")
-(load "~/code/elisp/ORGMODE-Markdown/markdown.el")
-
-;; ecukes
-;;(add-to-list 'load-path "~/code/elisp/ecukes")
-;;(require 'ecukes)
-
-;; maven
-(add-to-list 'load-path "~/code/elisp/maven-mode")
-(require 'mvn-mode)
 
 (require 'unbound)
 
@@ -56,8 +49,7 @@
 (require 'twittering-mode)
 
 ;; nxhtml
-(load "~/.emacs.d/vendor/nxhtml/autostart.el")
-
-(add-to-list 'load-path "~/.emacs.d/site-lisp/cookbook")
+;;(load "~/.emacs.d/vendor/nxhtml/autostart.el")
 
 (dired default-directory)
+

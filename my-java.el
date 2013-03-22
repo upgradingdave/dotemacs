@@ -1,5 +1,9 @@
 ;; My emacs java development environment
 
+;; maven
+(add-to-list 'load-path "~/code/elisp/maven-mode")
+(require 'mvn-mode)
+
 ;; Semantic
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
                                   global-semanticdb-minor-mode
