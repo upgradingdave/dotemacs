@@ -13,13 +13,19 @@
 (semantic-mode 1)
 
 ;; Malabar Mode
-(add-to-list 'load-path (expand-file-name "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lisp"))
+(add-to-list 'load-path
+             (expand-file-name
+              "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lisp"))
+
 (require 'malabar-mode)
-(setq malabar-groovy-lib-dir (expand-file-name "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lib"))
+(setq malabar-groovy-lib-dir
+      (expand-file-name
+       "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lib"))
+
 (add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
 
 (add-hook 'malabar-mode-hook
-          (lambda () 
+          (lambda ()
             (add-hook 'after-save-hook 'malabar-compile-file-silently
                       nil t)))
 
@@ -47,7 +53,7 @@ example, if cwd is
 package name will be `my.project.helpers`"
   (interactive)
   (let* ((topdir "java")
-         (dirprefix (expand-file-name 
+         (dirprefix (expand-file-name
                      (concat (locate-dominating-file default-directory topdir) topdir "/")))
          (curr (directory-file-name (expand-file-name ".")))
          (valid-dir (string-match dirprefix curr)))

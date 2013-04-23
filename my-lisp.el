@@ -31,7 +31,7 @@
 
 ;; highlight entire expression
 ;; Colors and styles controlled by the custom face `show-paren-match'
-(setq show-paren-style 'expression)
+(setq show-paren-style 'parenthesis)
 
 ;; turn on paredit, and rainbow-delimiters
 (dolist (x '(scheme emacs-lisp lisp clojure nrepl ielm))

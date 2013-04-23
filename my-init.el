@@ -21,15 +21,14 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; yasnippet
-(require 'yasnippet)
-(yas/initialize)
-;; Change prompt from the default: 
-;; (yas/x-prompt yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)
-(setq yas/prompt-functions '(yas/completing-prompt yas/ido-prompt yas/no-prompt))
-(setq yas/root-directory 
-      '("~/.emacs.d/dparoulek/snippets"))
-(mapc 'yas/load-directory yas/root-directory)
+;  after-change-major-mode-hook
+(defun dp/minor-mode-setup (file-extension minor-mode-fn)
+  "Use this along with `after-change-major-mode-hook to set minor
+mode MINOR-MODE-FN to start whenever a file with FILE-EXTENSION
+is opened."
+  (let* ((file-ext (file-name-extension (or (buffer-file-name) ""))))
+    (if (equal file-ext file-extension)
+        (funcall minor-mode-fn))))
 
 ;; markdown
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))

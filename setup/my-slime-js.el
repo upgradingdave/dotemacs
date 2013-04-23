@@ -2,10 +2,33 @@
 ;; and https://github.com/magnars/.emacs.d/blob/master/setup-slime-js.el
 ;;
 
+;; First, we need slime installed. Get latest copy from here: 
+;;http://common-lisp.net/project/slime/doc/html/Downloading.html#Downloading
+;;(setq inferior-lisp-program "/opt/sbcl/bin/sbcl") ; your Lisp system
+(add-to-list 'load-path "~/code/elisp/slime-2013-04-05")  ; your SLIME directory
 (require 'slime)
+(slime-setup)
+
+;; Remember to put slime-js.el into the SLIME/contrib directory
+;; Then, create a node project with this package.json: 
+;; { 
+;;      "devDependencies": {
+;;      "swank-js": ">=0.0.1"
+;;     },
+;;       "scripts": {
+;;       "swank": "node node_modules/swank-js"
+;;     }
+;;   }
+;; 
+;; Next, install swank-js like so: 
+;; npm install swank-js
+;;
+;; Then, start swank-js like this: 
+;; npm run swank
+
 (require 'slime-js)
 
-(setq slime-js-target-url "http://localhost:8080")
+(setq slime-js-target-url "http://localhost:3000")
 (setq slime-js-connect-url "http://localhost:8009")
 (setq slime-js-starting-url "/")
 (setq slime-js-swank-command "swank-js")
@@ -39,11 +62,16 @@
   (setq slime-remote-history nil)
   (slime-js-sticky-select-remote (caadr (slime-eval '(js:list-remotes))))
   (setq slime-js-browser-jacked-in-p t)
-  (global-set-key [f5] 'slime-js-reload))
+  (global-set-key (kbd "M-n") 'slime-js-reload))
+  ;; (global-set-key [f5] 'slime-js-reload))
 
 (defadvice save-buffer (after save-css-buffer activate)
   (when (and slime-js-browser-jacked-in-p (eq major-mode 'css-mode))
     (slime-js-refresh-css)))
+
+(defadvice save-buffer (after save-html-buffer activate)
+  (when (and slime-js-browser-jacked-in-p (eq major-mode 'sgml-mode))
+    (slime-js-reload)))
 
 (defun js2-eval-friendly-node-p (n)
   (or (and (js2-stmt-node-p n) (not (js2-block-node-p n)))
