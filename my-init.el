@@ -14,7 +14,7 @@
                                   unbound markdown-mode feature-mode yasnippet 
                                   clojure-mode clojure-test-mode nrepl gist 
                                   command-frequency rainbow-delimiters twittering-mode 
-                                  scala-mode color-theme color-theme-solarized)
+                                  scala-mode2 color-theme color-theme-solarized)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
