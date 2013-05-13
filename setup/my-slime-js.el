@@ -1,16 +1,27 @@
 ;; Based on http://emacsrocks.com/e11.html
 ;; and https://github.com/magnars/.emacs.d/blob/master/setup-slime-js.el
 ;;
-
 ;; First, we need slime installed. Get latest copy from here: 
 ;;http://common-lisp.net/project/slime/doc/html/Downloading.html#Downloading
-;;(setq inferior-lisp-program "/opt/sbcl/bin/sbcl") ; your Lisp system
 (add-to-list 'load-path "~/code/elisp/slime-2013-04-05")  ; your SLIME directory
 (require 'slime)
 (slime-setup)
 
+;; Next, we need swank-js (this provides communication between slime
+;; and javascript) 
+;;
+;; Next, install swank-js globally like so: 
+;; npm -g install swank-js
+;; swank-js command should be available
+;;
 ;; Remember to put slime-js.el into the SLIME/contrib directory
-;; Then, create a node project with this package.json: 
+;;
+;;
+;; Note, the web page you want to interact with, needs to include:
+;; <script src="../swank-js/swank-js.js"></script>
+;;
+;; (for some reason) if I start swank-js only from emacs it
+;; doesn't work, so create a node project with this package.json: 
 ;; { 
 ;;      "devDependencies": {
 ;;      "swank-js": ">=0.0.1"
@@ -19,16 +30,16 @@
 ;;       "swank": "node node_modules/swank-js"
 ;;     }
 ;;   }
-;; 
-;; Next, install swank-js like so: 
-;; npm install swank-js
-;;
-;; Then, start swank-js like this: 
+;; And then start swank-js like this: 
 ;; npm run swank
+;;
+;; Then, simply use "slime-js-jack-in-browser", which should 1) start
+;; swank-js process, and 2) open http://localhost:8009 in browser. 
+;; Then, you can see swank-js output inside terminal
 
 (require 'slime-js)
 
-(setq slime-js-target-url "http://localhost:3000")
+(setq slime-js-target-url "http://localhost:8181")
 (setq slime-js-connect-url "http://localhost:8009")
 (setq slime-js-starting-url "/")
 (setq slime-js-swank-command "swank-js")
@@ -69,7 +80,7 @@
   (when (and slime-js-browser-jacked-in-p (eq major-mode 'css-mode))
     (slime-js-refresh-css)))
 
-(defadvice save-buffer (after save-html-buffer activate)
+(defadvice save-buffer (after save-html-buffer disable)
   (when (and slime-js-browser-jacked-in-p (eq major-mode 'sgml-mode))
     (slime-js-reload)))
 
