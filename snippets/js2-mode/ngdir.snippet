@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: ngdir
+# key: ngdir
+# --
+  directive('${1:directiveName}', function factory(${2:injectables}) {
+    return {
+      templateUrl: '${3:templateUrl}',
+      replace: true,
+      transclude: false,
+      restrict: 'E',
+      scope: {},
+      controller: function($scope, $element, $attrs, $transclude) {
+      },
+      link: function postLink(scope, iElement, iAttrs) {
+        $0
+      }
+  };
+
+
