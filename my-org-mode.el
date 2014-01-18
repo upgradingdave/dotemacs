@@ -8,12 +8,7 @@
 (setq org-agenda-files (list "~/notes/gtd.org"))
 (setq org-todo-keywords
       '((sequence "TODO" "STARTED" "WAITING" "|" "DONE")))
-(setq org-tag-alist '(("repeating" . ?r) ("ahrq" . ?a) 
-                      ("house" . ?h) ("softwaredev" . ?s) 
-                      ("family" . ?f) ("money" . ?m) 
-                      ("function1" . ?1) ("blog" . ?b) 
-                      ("errands" . ?e) ("uncategorized" . ?u) 
-                      ("someday" . ?d) ("lazyjake" . ?l)))
+(setq org-tag-alist '(("blog" . ?b) ("daily" . ?d) ("errands" . ?e) ("family" . ?f) ("house" . ?h) ("ideas" . ?i) ("money" . ?n) ("monthly" . ?m)  ("repeating" . ?r) ("softwaredev" . ?s) ("someday" . ?o) ("uncategorized" . ?u) ("weekly" . ?w) ("yearly" . ?y)))
 
 ;; org-remember
 ;; TODO need to revisit
@@ -22,5 +17,12 @@
 ;;       '(("Simple" ?s "* %? :%^{Category|uncategorized|family|function1|errands|house|friends|money|softwaredev|blog|someday}:\n  %i\n" nil "Actions")))
 
 ;; Archive
-;; TODO fix this
-;;(setq org-archive-location (expand-file-name (concat org-directory "/gtd.org::* Archive")))
+(setq org-archive-location 
+      (expand-file-name "~/notes/gtd.org::* Archive"))
+
+;;(load "~/code/emacs/org-drill/org-drill.el")
+;;(require 'cl-lib)
+;;(require 'org-drill)
+
+
+

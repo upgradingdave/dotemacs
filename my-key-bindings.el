@@ -51,3 +51,5 @@
 ;; TODO Was this an attempt to fix git in eshell?
 ;; (add-hook 'eshell-preoutput-filter-functions 
 ;;           'ansi-color-filter-apply)
+
+

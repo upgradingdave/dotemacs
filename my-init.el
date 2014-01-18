@@ -5,16 +5,31 @@
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 ;; (add-to-list 'package-archives
 ;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
 ;; (when (not package-archive-contents)
 ;;   (package-refresh-contents))
 
-;;; Load favorite packages from elpa
-(defvar my-packages '(starter-kit js2-mode magit php-mode slime-js js-comint ace-jump-mode
-                                  unbound markdown-mode feature-mode yasnippet 
-                                  clojure-mode clojure-test-mode nrepl gist 
-                                  command-frequency rainbow-delimiters twittering-mode 
-                                  scala-mode2 color-theme color-theme-solarized)
+;;; Load favorite packages
+(defvar my-packages 
+  '(starter-kit 
+    js2-mode 
+    magit 
+    php-mode 
+    slime-js 
+    js-comint 
+    ace-jump-mode
+    unbound
+    markdown-mode 
+    feature-mode 
+    yasnippet 
+    clojure-mode 
+    cider
+    gist 
+    command-frequency 
+    rainbow-delimiters 
+    twittering-mode 
+    color-theme-solarized 
+    cl-lib
+    restclient)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -49,6 +64,10 @@ is opened."
 
 ;; nxhtml
 ;;(load "~/.emacs.d/vendor/nxhtml/autostart.el")
+
+;; Start emacs server so we can use emacsclient for things like magit
+(server-start)
+
 
 (dired default-directory)
 
