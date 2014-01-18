@@ -46,7 +46,7 @@
 ;; TODO make this only for nxml mode
 (global-set-key (kbd "M-.") 'completion-at-point)
 
-(global-set-key (kbd "C-0") 'ace-jump-mode)
+(global-set-key (kbd "C-;") 'ace-jump-mode)
 
 ;; TODO Was this an attempt to fix git in eshell?
 ;; (add-hook 'eshell-preoutput-filter-functions 
