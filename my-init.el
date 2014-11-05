@@ -29,7 +29,11 @@
     twittering-mode 
     color-theme-solarized 
     cl-lib
-    restclient)
+    restclient
+    expand-region
+    multiple-cursors
+    zencoding-mode
+    auto-complete)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -89,9 +93,25 @@ might work too)"
 ;; nxhtml
 ;;(load "~/.emacs.d/vendor/nxhtml/autostart.el")
 
+;; A few functions thanks to emacsrocks.com 
+;; https://github.com/magnars/.emacs.d/blob/master/defuns/buffer-defuns.el#L144-166
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer.
+Including indent-buffer, which should not be called automatically on save."
+  (interactive)
+  (untabify-buffer)
+  (delete-trailing-whitespace)
+  (indent-buffer))
+
 ;; Start emacs server so we can use emacsclient for things like magit
 (server-start)
 
-
 (dired default-directory)
-

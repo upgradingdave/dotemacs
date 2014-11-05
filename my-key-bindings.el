@@ -17,6 +17,9 @@
 ;; M-x c bound to compile
 (global-set-key (kbd "C-x c") 'compile)
 
+;; find-file-in-repository
+(global-set-key (kbd "C-x f") 'find-file-in-repository)
+
 ;; grep and find
 
 (global-set-key (kbd "C-c f") (lambda (pattern)
@@ -52,4 +55,14 @@
 ;; (add-hook 'eshell-preoutput-filter-functions 
 ;;           'ansi-color-filter-apply)
 
+;; cleanup buffer
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
 
+;; expand-region
+(global-set-key (kbd "C-c C-2") 'er/expand-region)
+
+;; multiple cursors
+(global-set-key (kbd "C-c C-r") 'mc/mark-sgml-tag-pair)
+
+;; zencoding
+(global-set-key (kbd "C-c p") 'zencoding-preview)

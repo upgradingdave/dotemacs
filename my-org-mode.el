@@ -8,7 +8,7 @@
 (setq org-agenda-files (list "~/notes/gtd.org"))
 (setq org-todo-keywords
       '((sequence "TODO" "STARTED" "WAITING" "|" "DONE")))
-(setq org-tag-alist '(("blog" . ?b) ("daily" . ?d) ("errands" . ?e) ("family" . ?f) ("house" . ?h) ("ideas" . ?i) ("money" . ?n) ("monthly" . ?m)  ("repeating" . ?r) ("softwaredev" . ?s) ("someday" . ?o) ("uncategorized" . ?u) ("weekly" . ?w) ("yearly" . ?y)))
+(setq org-tag-alist '(("dfas" . ?d) ("errands" . ?e) ("family" . ?f) ("house" . ?h) ("ideas" . ?i) ("monthly" . ?m) ("someday" . ?o) ("sailboat" . ?s) ("uncategorized" . ?u) ("weekly" . ?w) ("yearly" . ?y)))
 
 ;; org-remember
 ;; TODO need to revisit

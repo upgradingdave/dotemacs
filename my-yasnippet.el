@@ -1,12 +1,11 @@
 ;; yasnippet
 (require 'yasnippet)
-(yas/initialize)
-;; Change prompt from the default: 
-;; (yas/x-prompt yas/dropdown-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt)
-(setq yas/prompt-functions '(yas/completing-prompt yas/ido-prompt yas/no-prompt))
-(setq yas/root-directory 
-      '("~/.emacs.d/dparoulek/snippets"))
+
+(setq yas/root-directory '("~/.emacs.d/dparoulek/snippets"))
 (mapc 'yas/load-directory yas/root-directory)
+
+;; Let's have snippets in the auto-complete dropdown
+(add-to-list 'ac-sources 'ac-source-yasnippet)
 
 ;; functions used in yasnippets
 

@@ -1,8 +1,8 @@
 ;; My emacs java development environment
 
 ;; maven
-(add-to-list 'load-path "~/code/elisp/maven-mode")
-(require 'mvn-mode)
+;;(add-to-list 'load-path "~/code/elisp/maven-mode")
+;;(require 'mvn-mode)
 
 ;; Semantic
 (setq semantic-default-submodes '(global-semantic-idle-scheduler-mode
@@ -13,21 +13,21 @@
 (semantic-mode 1)
 
 ;; Malabar Mode
-(add-to-list 'load-path
-             (expand-file-name
-              "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lisp"))
-
-(require 'malabar-mode)
-(setq malabar-groovy-lib-dir
-      (expand-file-name
-       "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lib"))
-
-(add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
-
-(add-hook 'malabar-mode-hook
-          (lambda ()
-            (add-hook 'after-save-hook 'malabar-compile-file-silently
-                      nil t)))
+;;(add-to-list 'load-path
+;;             (expand-file-name
+;;              "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lisp"))
+;;
+;;(require 'malabar-mode)
+;;(setq malabar-groovy-lib-dir
+;;      (expand-file-name
+;;       "~/src/emacs/malabar-mode/malabar-1.5-SNAPSHOT/lib"))
+;;
+;;(add-to-list 'auto-mode-alist '("\\.java\\'" . malabar-mode))
+;;
+;;(add-hook 'malabar-mode-hook
+;;          (lambda ()
+;;            (add-hook 'after-save-hook 'malabar-compile-file-silently
+;;                      nil t)))
 
 ;; ffip
 (require 'find-file-in-project)
