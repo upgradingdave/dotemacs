@@ -36,9 +36,9 @@
     auto-complete)
   "A list of packages to ensure are installed at launch.")
 
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+;; (dolist (p my-packages)
+;;   (when (not (package-installed-p p))
+;;     (package-install p)))
 
 ;  after-change-major-mode-hook
 (defun dp/minor-mode-setup (file-extension minor-mode-fn)
