@@ -1,7 +1,7 @@
 ;; Lisp stuff
 
 ;; Add all elpa directories to load-path
-;;TODO: need to understand why I need this on mac, but not on linux?!
+;;TODO: not sure I need this. One time seemed i needed this on mac, but not on linux?
 (let ((dir "~/.emacs.d/elpa"))
   (dolist (path (mapcar (lambda (x) (concat dir "/" x)) 
                         (remove-if (lambda (x) (or (equal x ".") (equal x ".."))) 
@@ -32,7 +32,6 @@
 ;; clojurescript
 (add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
 ;;(setq inferior-lisp-program "browser-repl")
-
 
 ;; TODO put these into a minor mode maybe?
 (global-set-key (kbd "C-x x f") 'find-function)

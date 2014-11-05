@@ -16,6 +16,12 @@
 (require 'auto-complete-config)
 (add-hook 'css-mode-hook 'ac-css-mode-setup)
 
+;; SCSS
+(scss-compile-at-save nil)
+(scss-output-directory nil)
+
+
+
 ;; slime-js for auto refreshing of browser, see setup/my-slime-js.el
 ;; for more info
 ;; (add-hook 'after-init-hook
@@ -30,4 +36,3 @@
 ;;                 (dp/minor-mode-setup "css" 'slime-js-minor-mode)
 ;;                 (dp/minor-mode-setup "html" 'slime-js-minor-mode)
 ;;                 (dp/minor-mode-setup "js" 'slime-js-minor-mode))))
-
