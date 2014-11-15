@@ -1,3 +1,7 @@
+;; make dired show file sizes in human readable format
+(custom-set-variables
+ '(dired-listing-switches "-alh"))
+
 ;; markdown
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
